@@ -4,15 +4,15 @@ import './App.css';
 import Home from './components/Home';
 import  LoginForm  from './components/LoginForm';
 import FriendsList from './components/FriendsList';
+import PrivateRoute from "./axioAuth/PrivateRoute"
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <h1>Hello Redux friends</h1>
         <Route exact path = "/" component = {Home} />
         <Route  path = "/login-form" component={LoginForm}/>
-        <Route path = "/friends" component = {FriendsList} />
+        <PrivateRoute exact path = "/friends" component = {FriendsList} />
       </div>
     </Router>
   );

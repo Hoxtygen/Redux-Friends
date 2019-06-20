@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {loginUser}  from '../actions/actionCreators';
+import Header from './Header';
 
 
 export class LoginForm extends React.Component {
@@ -16,14 +17,17 @@ export class LoginForm extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div>
+        <Header />
+        <div>
         <h3>Login</h3>
         <div>username <input type="text" ref={this.userRef} /></div>
         <div>password <input type="text" ref={this.passRef} /></div>
 
         <button onClick={this.onLogin}>Log in</button>
+        </div>
+       
       </div>
     );
   }
