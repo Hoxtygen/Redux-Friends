@@ -11,7 +11,7 @@ import * as serviceWorker from './serviceWorker';
 
 
 const combinedReducer = combineReducers({
-    friends: friendReducer,
+    friendReducer,
   });
 
 const store = createStore(combinedReducer,

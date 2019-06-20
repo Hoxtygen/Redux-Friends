@@ -12,10 +12,11 @@ export class LoginForm extends React.Component {
     const username = this.userRef.current.value;
     const password = this.passRef.current.value;
 
-    this.props.loginUser(username, password);
+    this.props.loginUser(username, password, this.props.history);
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <h3>Login</h3>

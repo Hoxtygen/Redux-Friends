@@ -1,12 +1,13 @@
-import  * as types from "../actions/actionTypes";
+import * as types from "../actions/actionTypes";
 
 const initialState = {
     friends: [],
-    loggedIn:false,
-    error: null
+    loggedIn: false,
+    error: null,
+    fetching: false
 }
 
-export function friendReducer(state = initialState, action)   {
+export function friendReducer(state = initialState, action) {
     switch (action.type) {
         case (types.LOGIN):
             return {
@@ -24,6 +25,23 @@ export function friendReducer(state = initialState, action)   {
                 ...state,
                 loggedIn: false,
                 error: action.payload
+            };
+        case (types.ADD_FRIENDS):
+            return { ...state, fetching: action.payload };
+        case (types.ADD_FRIENDS_SUCCESS):
+            return {
+                ...state,
+                friends: action.payload,
+                fetching: false,
+                error: null,
+                loggedIn: true
+            };
+        case (types.ADD_FRIENDS_FAILURE):
+            return {
+                ...state,
+                error: action.payload,
+                fetching: false,
+                loggedIn: true
             }
 
         default:
