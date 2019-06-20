@@ -10,8 +10,14 @@ class FriendsList extends Component {
     }
     
     render() {
-        const friends = this.props.friends || []        
-        return (
+        const friends = this.props.friends || []
+        console.log(this.props)
+        if (this.props.fetching) {
+            // return something here to indicate that you are fetching data
+            return <Loaders />
+          }
+          return this.props.error ? (<p>{this.props.error}</p>) :  
+         (
             <div>
                 <h2>List of friends here</h2>
                 {

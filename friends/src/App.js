@@ -5,6 +5,7 @@ import Home from './components/Home';
 import  LoginForm  from './components/LoginForm';
 import FriendsList from './components/FriendsList';
 import PrivateRoute from "./axioAuth/PrivateRoute"
+import NewFriend from "./components/NewFriend"
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route exact path = "/" component = {Home} />
         <Route  path = "/login-form" component={LoginForm}/>
         <PrivateRoute exact path = "/friends" component = {FriendsList} />
+        <PrivateRoute exact path = "/new-friend" component = {NewFriend} />
       </div>
     </Router>
   );
