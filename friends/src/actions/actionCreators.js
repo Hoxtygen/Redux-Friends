@@ -4,10 +4,10 @@ import * as types from "./actionTypes"
 
 
 
-  export function login_success(friends) {
+  export function login_success(token) {
     return {
       type: types.LOGIN_SUCCESS,
-      payload: friends,
+      payload: token,
     };
   }
 
@@ -24,8 +24,8 @@ import * as types from "./actionTypes"
     axios.post("http://localhost:5000/api/login", credentials)
         .then(res => {
             console.log(res)
-            localStorage.setItem("token", res.data.payload);
-            dispatch(login_success(true))
+            //localStorage.setItem("token", res.data.payload);
+            dispatch(login_success(res.data.payload))
             history.push("/friends")
         })
         .catch(err => {

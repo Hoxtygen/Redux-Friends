@@ -8,6 +8,7 @@ import { friendReducer } from "./reducers/friendReducer"
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { addTokenToLocalStorage } from "./middleware/authMiddleWare"
 
 
 const combinedReducer = combineReducers({
@@ -16,7 +17,7 @@ const combinedReducer = combineReducers({
 
 const store = createStore(combinedReducer,
     compose(
-        applyMiddleware(thunk, logger),
+        applyMiddleware(thunk, addTokenToLocalStorage, logger),
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
       ),
     )
