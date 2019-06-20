@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { fetchFriends } from '../actions/actionCreators';
 import Friend from "./Friend"
 import Loaders from "react-loader-spinner";
+import Header from './Header';
 
 class FriendsList extends Component {
     componentDidMount() {
@@ -19,6 +20,7 @@ class FriendsList extends Component {
           return this.props.error ? (<p>{this.props.error}</p>) :  
          (
             <div>
+                <Header />
                 <h2>List of friends here</h2>
                 {
                     friends.map(friend => {

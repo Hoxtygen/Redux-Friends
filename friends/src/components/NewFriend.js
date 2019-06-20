@@ -1,10 +1,14 @@
 import React from 'react';
 import styled from "styled-components";
+import Header from './Header';
 
 
     const NewFriend = props => {
       console.log(props);
       return (
+        <div>
+          <Header />
+        
         <FormWapper>
           <h1>Add New Friend</h1>
           <form action="">
@@ -24,6 +28,7 @@ import styled from "styled-components";
           </ButtonContainer>
           </form>
       </FormWapper>
+      </div>
       );
     }
 
