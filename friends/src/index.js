@@ -3,14 +3,20 @@ import ReactDOM from 'react-dom';
 import thunk from 'redux-thunk';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import logger from "redux-logger";
 import { friendReducer } from "./reducers/friendReducer"
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(friendReducer,
+
+const combinedReducer = combineReducers({
+    friends: friendReducer,
+  });
+
+const store = createStore(combinedReducer,
     compose(
-        applyMiddleware(thunk),
+        applyMiddleware(thunk, logger),
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
       ),
     )
